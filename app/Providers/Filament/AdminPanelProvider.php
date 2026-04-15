@@ -12,6 +12,9 @@ use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
+use App\Filament\Widgets\EmployeeStatsOverview;
+use App\Filament\Widgets\EmployeesByDepartmentBar;
+use App\Filament\Widgets\EmployeesByDepartmentPie;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -39,6 +42,9 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
                 AccountWidget::class,
+                EmployeeStatsOverview::class,
+                EmployeesByDepartmentBar::class,
+                EmployeesByDepartmentPie::class,
                 FilamentInfoWidget::class,
             ])
             ->middleware([

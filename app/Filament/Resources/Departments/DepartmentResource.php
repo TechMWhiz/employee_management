@@ -33,7 +33,7 @@ class DepartmentResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            \App\Filament\Resources\Departments\RelationManagers\EmployeesRelationManager::class,
         ];
     }
 

@@ -41,6 +41,7 @@ class ProjectResource extends Resource
     {
         return [
             'index' => ListProjects::route('/'),
+            'archived' => Pages\ListArchivedProjects::route('/archived'),
             'create' => CreateProject::route('/create'),
             'edit' => EditProject::route('/{record}/edit'),
         ];

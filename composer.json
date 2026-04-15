@@ -9,10 +9,11 @@
         "php": "^8.3",
         "filament/filament": "^4.0",
         "laravel/framework": "^13.0",
+        "laravel/sanctum": "^4.3",
         "laravel/tinker": "^3.0"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.23",
+        "fakerphp/faker": "^1.24",
         "laravel/pail": "^1.2.5",
         "laravel/pint": "^1.27",
         "mockery/mockery": "^1.6",
@@ -26,6 +27,9 @@
             "Database\\Seeders\\": "database/seeders/"
         }
     },
+    "autoload-files": [
+        "app/Support/filament_stubs.php"
+    ],
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"

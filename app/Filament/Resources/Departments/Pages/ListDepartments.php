@@ -12,8 +12,21 @@ class ListDepartments extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            CreateAction::make(),
-        ];
+        return [];
+    }
+
+    protected function getEmptyStateHeading(): ?string
+    {
+        return 'No departments yet';
+    }
+
+    protected function getEmptyStateDescription(): ?string
+    {
+        return 'Create your first department to organize teams and projects.';
+    }
+
+    protected function getEmptyStateActions(): array
+    {
+        return [];
     }
 }

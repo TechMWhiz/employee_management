@@ -4,6 +4,11 @@ namespace App\Filament\Resources\Employees\Tables;
 
 use Filament\Tables\Table;
 use Filament\Tables;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Actions\Action;
+use Filament\Actions\EditAction;
+
+use Illuminate\Database\Eloquent\Model;
 
 class EmployeesTable 
 {
@@ -37,6 +42,45 @@ class EmployeesTable
                 ->boolean(),
 
             Tables\Columns\ImageColumn::make('profile_picture'),
-        ]);
+        ])
+        ->filters([
+            SelectFilter::make('employment_type')
+                ->label('Employment type')
+                ->options([
+                    'full_time' => 'Full-Time',
+                    'part_time' => 'Part-Time',
+                    'contract' => 'Contract',
+                    'intern' => 'Intern',
+                ]),
+        ])
+        ->recordActions([
+            EditAction::make(),
+
+            Action::make('archive')
+                ->label('Archive')
+                ->action(function (Model $record) {
+                    $record->update(['archived' => true]);
+                })
+                ->requiresConfirmation()
+                ->color('warning')
+                ->visible(fn (Model $record): bool => ! $record->archived),
+            Action::make('restore')
+                ->label('Restore')
+                ->action(function (Model $record) {
+                    $record->update(['archived' => false]);
+                })
+                ->requiresConfirmation()
+                ->color('success')
+                ->visible(fn (Model $record): bool => (bool) $record->archived),
+            Action::make('delete_permanently')
+                ->label('Delete permanently')
+                ->action(function (Model $record) {
+                    $record->delete();
+                })
+                ->requiresConfirmation()
+                ->color('danger')
+                ->visible(fn (Model $record): bool => (bool) $record->archived),
+        ])
+        ->defaultSort('name');
     }
 }

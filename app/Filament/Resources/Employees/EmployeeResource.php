@@ -49,6 +49,7 @@ class EmployeeResource extends Resource
     {
         return [
             'index' => ListEmployees::route('/'),
+            'archived' => Pages\ListArchivedEmployees::route('/archived'),
             'create' => CreateEmployee::route('/create'),
             'edit' => EditEmployee::route('/{record}/edit'),
         ];
