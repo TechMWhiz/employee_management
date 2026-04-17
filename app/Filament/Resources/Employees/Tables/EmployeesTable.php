@@ -17,7 +17,10 @@ class EmployeesTable
             Tables\Columns\TextColumn::make('email')
                 ->searchable(),
 
-            Tables\Columns\TextColumn::make('department'),
+            Tables\Columns\TextColumn::make('department.name') // show department name
+                ->label('Department')
+                ->sortable()
+                ->searchable(),
 
             Tables\Columns\TextColumn::make('job_title'),
 

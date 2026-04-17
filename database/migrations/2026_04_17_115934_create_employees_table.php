@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('department')->nullable();
+            $table->foreignId('department_id')
+                    ->constrained('departments')
+                    ->onDelete('cascade');
             $table->string('job_title')->nullable();
             $table->string('employment_type'); // full_time, part_time, contract, intern
             $table->date('hire_date');

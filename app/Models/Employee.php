@@ -15,7 +15,7 @@ class Employee extends Model
     protected $fillable = [
         'name',
         'email',
-        'department',
+        'department_id',
         'job_title',
         'employment_type',
         'hire_date',
@@ -32,4 +32,13 @@ class Employee extends Model
         'inactive' => 'boolean',
         'archived' => 'boolean',
     ];
+<<<<<<< Updated upstream
+=======
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+
+>>>>>>> Stashed changes
 }
