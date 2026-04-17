@@ -19,10 +19,6 @@ class EmployeeForm
                 ->required()
                 ->unique(ignoreRecord: true),
 
-<<<<<<< Updated upstream
-            Forms\Components\TextInput::make('department')
-                ->maxLength(255),
-=======
             Forms\Components\Select::make('department_id')
                 ->label('Department')
                 ->relationship('department', 'name') // links to Department model
@@ -30,7 +26,6 @@ class EmployeeForm
                 ->required(),
     
             Forms\Components\TextInput::make('job_title'),
->>>>>>> Stashed changes
 
             Forms\Components\TextInput::make('job_title')
                 ->maxLength(255),

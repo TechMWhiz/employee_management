@@ -32,13 +32,10 @@ class Employee extends Model
         'inactive' => 'boolean',
         'archived' => 'boolean',
     ];
-<<<<<<< Updated upstream
-=======
 
     public function department()
     {
         return $this->belongsTo(Department::class);
     }
 
->>>>>>> Stashed changes
 }

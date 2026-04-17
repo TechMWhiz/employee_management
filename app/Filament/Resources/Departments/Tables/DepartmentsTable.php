@@ -7,20 +7,13 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\CreateAction;
 use Filament\Tables\Table;
-<<<<<<< Updated upstream
-=======
 use Filament\Tables;
->>>>>>> Stashed changes
 
 class DepartmentsTable
 {
     public static function configure(Table $table): Table
     {
         return $table
-<<<<<<< Updated upstream
-            ->columns([
-                //
-=======
             ->query(fn () => \App\Models\Department::whereHas('employees'))
             ->columns([
                 Tables\Columns\TextColumn::make('id')
@@ -51,7 +44,6 @@ class DepartmentsTable
                     ->label('Created')
                     ->dateTime()
                     ->sortable(),
->>>>>>> Stashed changes
             ])
             ->filters([
                 //

@@ -3,24 +3,21 @@
 namespace App\Filament\Resources\Departments\Schemas;
 
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select; 
+use Filament\Forms\Components\Toggle;
 
 class DepartmentForm
 {
     public static function configure(Schema $schema): Schema
     {
-<<<<<<< Updated upstream
-        return $schema
-            ->components([
-                //
-            ]);
-=======
         return $schema->schema([
-            Forms\Components\TextInput::make('name')
+            TextInput::make('name')
                 ->label('Department Name')
                 ->required()
                 ->maxLength(255),
 
-            Forms\Components\Select::make('category')
+            Select::make('category')
                 ->label('Category')
                 ->options([
                     'engineering' => 'Engineering',
@@ -31,10 +28,9 @@ class DepartmentForm
                 ->searchable()
                 ->placeholder('Select a category'),
 
-            Forms\Components\Toggle::make('active')
+            Toggle::make('active')
                 ->label('Active')
                 ->default(true),
         ]);
->>>>>>> Stashed changes
     }
 }
