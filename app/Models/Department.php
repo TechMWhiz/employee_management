@@ -13,13 +13,20 @@ class Department extends Model
         'category',
         'active'
     ];
-
+ 
     protected $casts = [
         'active' => 'boolean',
     ];
 
+
     public function employees()
     {
-        return $this->hasMany(\App\Models\Employee::class, 'department_id');
+        return $this->hasMany(Employee::class);
     }
+
+    public function subDepartments()
+    {
+        return $this->hasMany(SubDepartment::class);
+    }
+
 }

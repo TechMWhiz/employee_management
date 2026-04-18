@@ -14,7 +14,6 @@ class DepartmentsTable
     public static function configure(Table $table): Table
     {
         return $table
-            ->query(fn () => \App\Models\Department::whereHas('employees'))
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                     ->label('ID')
@@ -44,18 +43,6 @@ class DepartmentsTable
                     ->label('Created')
                     ->dateTime()
                     ->sortable(),
-            ])
-            ->filters([
-                //
-            ])
-            ->recordActions([
-                EditAction::make(),
-            ])
-            ->toolbarActions([
-                CreateAction::make(),
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ]);
+                    ]);
     }
 }

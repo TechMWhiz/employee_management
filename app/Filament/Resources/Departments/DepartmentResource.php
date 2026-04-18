@@ -41,8 +41,15 @@ class DepartmentResource extends Resource
     {
         return [
             'index' => ListDepartments::route('/'),
-            'create' => CreateDepartment::route('/create'),
-            'edit' => EditDepartment::route('/{record}/edit'),
+            'view' => Pages\ViewDepartment::route('/{record}'),
         ];
     }
+
+    public static function getWidgets(): array
+    {
+        return [
+            \App\Filament\Resources\Departments\Widgets\DepartmentOverview::class,
+        ];
+    }
+
 }
