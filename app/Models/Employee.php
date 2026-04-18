@@ -40,6 +40,7 @@ class Employee extends Model
 
     public function subDepartment()
     {
-        return $this->belongsTo(SubDepartment::class);
+        return $this->belongsTo(\App\Models\SubDepartment::class, 'sub_department_id');
     }
+
 }

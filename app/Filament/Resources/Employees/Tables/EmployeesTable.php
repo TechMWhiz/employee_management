@@ -22,6 +22,10 @@ class EmployeesTable
                 ->sortable()
                 ->searchable(),
 
+            Tables\Columns\TextColumn::make('subDepartment.name')
+                ->label('Category')
+                ->sortable(),
+
             Tables\Columns\TextColumn::make('job_title'),
 
             Tables\Columns\TextColumn::make('employment_type')

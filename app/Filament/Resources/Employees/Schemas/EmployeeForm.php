@@ -4,6 +4,8 @@ namespace App\Filament\Resources\Employees\Schemas;
 
 use Filament\Forms;
 use Filament\Schemas\Schema;
+use App\Models\Department;
+use App\Models\SubDepartment;
 
 class EmployeeForm
 {
@@ -22,10 +24,25 @@ class EmployeeForm
             Forms\Components\Select::make('department_id')
                 ->label('Department')
                 ->relationship('department', 'name') // links to Department model
-                ->searchable()
-                ->required(),
-    
-            Forms\Components\TextInput::make('job_title'),
+                ->required()
+                ->reactive(),
+
+            
+            Forms\Components\Select::make('sub_department_id')
+                ->label('Category')
+                ->options(function (callable $get) {
+                    $departmentId = $get('department_id');
+                    if (!$departmentId) {
+                        return [];
+                    }
+
+                    return SubDepartment::where('department_id', $departmentId)
+                        ->pluck('name', 'id');
+                })
+                ->required()
+                ->reactive()
+                ->disabled(fn (callable $get) => !$get('department_id'))
+                ->placeholder('Select a category'),
 
             Forms\Components\TextInput::make('job_title')
                 ->maxLength(255),
