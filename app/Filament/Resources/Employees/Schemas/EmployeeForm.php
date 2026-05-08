@@ -19,8 +19,12 @@ class EmployeeForm
                 ->required()
                 ->unique(ignoreRecord: true),
 
-            Forms\Components\TextInput::make('department')
-                ->maxLength(255),
+            Forms\Components\Select::make('department_id')
+                ->label('Department')
+                ->relationship('department', 'name')
+                ->searchable()
+                ->preload()
+                ->nullable(),
 
             Forms\Components\TextInput::make('job_title')
                 ->maxLength(255),
