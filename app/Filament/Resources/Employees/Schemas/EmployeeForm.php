@@ -49,10 +49,6 @@ class EmployeeForm
                 ->label('Inactive')
                 ->default(false),
 
-            Forms\Components\Toggle::make('archived')
-                ->label('Archived')
-                ->default(false),
-
             Forms\Components\FileUpload::make('profile_picture')
                 ->image()
                 ->directory('employees'),

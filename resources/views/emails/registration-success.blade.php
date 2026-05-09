@@ -13,7 +13,7 @@
                 <tr>
                     <td style="padding: 20px 24px; background-color: #0f172a; color: #ffffff;">
                         <div style="font-size: 16px; font-weight: 700; line-height: 1.4;">Registration Successful</div>
-                        <div style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Welcome to {{ config('app.name') }}.</div>
+                        <div style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Welcome to Employee Management System.</div>
                     </td>
                 </tr>
 
